@@ -2,18 +2,16 @@ import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import Component from '../Component.jsx';
-import {Router, Route, browserHistory, match, RouterContext} from 'react-router';
+import routes from './routes.jsx';
+import {match, RouterContext} from 'react-router';
 
 const router = express.Router();
 
 router.get('*', (req, res) => {
     let props = {title: "universal application"};
     match({
-        routes: (
-            <Router history={browserHistory}>
-                <Route path="/" component={Component}/>
-            </Router>
-        ), location: req.url
+        routes: routes,
+        location: req.url
     }, (error, redirectLocation, renderProps) => {
         if (renderProps) {
             const html = ReactDOMServer.renderToString(

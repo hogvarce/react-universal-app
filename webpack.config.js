@@ -5,12 +5,12 @@ module.exports = {
         path: 'public'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
-                query: {
+                options: {
                     presets: ['es2015', 'react', 'stage-0']
                 }
             },
@@ -18,8 +18,8 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'react', 'stage-0']
+                options: {
+                    presets: [ "es2015", { "modules": false }, 'react']
                 }
             },
             {

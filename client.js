@@ -1,9 +1,4 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from './Component.jsx';
+import {routes} from './routes/routes.jsx';
 
-const props = window.PROPS;
-
-ReactDOM.render(
-    React.createElement(Component, props), document
-);
+ReactDOM.render(routes, document);
