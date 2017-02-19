@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node --presets es2015 server.js && webpack -w"
+    "start": "webpack && babel-node --presets es2015 server.js"
   },
   "author": "",
   "license": "ISC",

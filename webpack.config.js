@@ -11,7 +11,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
-                    presets: ['es2015', 'react', 'stage-0']
+                    presets: ['react']
                 }
             },
             {
@@ -19,7 +19,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
-                    presets: [ "es2015", { "modules": false }, 'react']
+                    presets: ['react']
                 }
             },
             {

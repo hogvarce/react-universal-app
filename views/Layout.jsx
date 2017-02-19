@@ -1,22 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
-export default class Component extends React.Component {
+class Layout extends React.Component {
     onHandlePress() {
         alert();
     }
 
     render() {
+        let {custom} = this.props;
         return (
             <html>
             <head>
-                <title>{this.props.title}</title>
+                <title>{custom.title}</title>
                 <link href="/styles.css" rel="stylesheet"/>
             </head>
             <body>
-                <h1>{this.props.title}</h1>
+                <h1>{custom.title}</h1>
                 <button className="btn" onClick={this.onHandlePress.bind(this)}>Нажми меня</button>
+                {this.props.children}
                 <script dangerouslySetInnerHTML={{
-                    __html: 'window.PROPS=' + JSON.stringify(this.props)
+                    __html: 'window.PROPS=' + JSON.stringify(custom)
                 }} />
                 <script src="/bundle.js"/>
             </body>
@@ -24,3 +27,11 @@ export default class Component extends React.Component {
         )
     }
 }
+
+function mapStateToProps (state) {
+    return {
+        custom: state
+    }
+}
+
+export default connect(mapStateToProps)(Layout);

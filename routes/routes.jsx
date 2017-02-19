@@ -1,15 +1,14 @@
 import React from 'react';
-import {Router, Route, browserHistory} from 'react-router';
-import Component from '../Component.jsx';
-
-if (typeof window === 'object') {
-    function createElement(Component, props) {
-        return <Component {...props} {...window.PROPS}/>;
-    }
-}
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
+import Layout from '../views/Layout.jsx';
+import Index from '../views/Index.jsx';
+import About from '../views/About.jsx';
 
 export default
-<Router history={browserHistory}>
-    <Route path="/" component={Component}/>
-</Router>
+    <Router history={browserHistory}>
+        <Route path="/" component={Layout}>
+            <IndexRoute component={Index} />
+            <Route path="about" component={About} />
+        </Route>
+    </Router>
 
